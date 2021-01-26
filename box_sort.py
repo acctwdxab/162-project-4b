@@ -35,7 +35,7 @@ def box_sort(list_of_boxes) :
       for i in range ( 1 , len ( list_of_boxes ) ) :
           box = list_of_boxes[i]
           j = i - 1;
-          while j >= 0 and box < list_of_boxes[j] :
+          while j >= 0 and box.volume() < list_of_boxes[j] :
               list_of_boxes[j + 1] = list_of_boxes[j]
               j -= 1
               list_of_boxes[j + 1] = box
