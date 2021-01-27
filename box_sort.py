@@ -34,19 +34,20 @@ class Box:
 def box_sort(boxes) :
       """uses insertion sort to sort a list of Boxes from greatest volume to least volume."""
       for i in range ( 1 , len ( boxes ) ) :
-          box= boxes[i]
+          box_volume= get_volume(boxes[i])
           j = i - 1;
-          while j >= 0 and box < boxes[j] :
+          while j >= 0 and box < get_volume(boxes[j]) :
               boxes[j + 1] = boxes[j]
               j -= 1
-              boxes[j + 1] = box
+          boxes[j + 1] = box
+      return boxes
 
 def main():
-    box1 = (4,6,2)
-    box2 = (1,2,3)
-    box3 = (3,4,2)
+    box1 = Box(4,6,2)
+    box2 = Box(1,2,3)
+    box3 = Box(3,4,2)
     boxes = box_sort([box1,box2,box3])
-    for i in range (len(boxes)):
+    for i in range (1, len(boxes)):
         print(boxes[i].get_volume())
 
 main()
